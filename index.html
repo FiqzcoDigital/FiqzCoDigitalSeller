@@ -1,2 +1,203 @@
-# FiqzCoDigitalSeller
-Template website kedai digital moden menggunakan HTML, CSS &amp; JavaScript. Mengandungi katalog produk, troli belian, testimoni pelanggan, FAQ serta integrasi WhatsApp. Sesuai untuk jual produk digital seperti template Canva, planner &amp; kursus online.
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiqz Co Digital - Kedai Produk Digital</title>
+  <meta name="description" content="Kedai produk digital moden - Template website, design Canva, planner digital & kursus online. Belian mudah melalui ToyyibPay & PayPal.">
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: #f4f6f9; color: #333; }
+    header { background: #1a1a1a; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+    header h2 { margin: 0; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: #00c4ff; }
+    section { padding: 40px 20px; max-width: 1200px; margin: auto; }
+    .hero { text-align: center; padding: 70px 20px; border-radius: 10px; background: linear-gradient(to right, #00c4ff, #007bff); color: white; }
+    .hero h1 { font-size: 2.5rem; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 40px; }
+    .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 6px 12px rgba(0,0,0,0.1); transition: transform 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 20px; text-align: center; }
+    .card h3 { margin: 10px 0; font-size: 1.2rem; }
+    .card p { font-size: 14px; color: #555; }
+    .btn { display: inline-block; background: #007bff; color: white; padding: 10px 20px; margin-top: 15px; border-radius: 8px; text-decoration: none; transition: 0.3s; cursor: pointer; }
+    .btn:hover { background: #0056b3; }
+    #cart { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-top: 40px; }
+    .testimoni, .faq { background: white; border-radius: 12px; padding: 25px; margin-top: 40px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+    .faq details { margin: 10px 0; }
+    footer { text-align: center; padding: 20px; background: #1a1a1a; color: white; margin-top: 40px; }
+    /* WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 1000;
+    }
+    .whatsapp-float:hover { background: #1ebd5a; }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Fiqz Co Digital</h2>
+    <nav>
+      <a href="#products">Produk</a>
+      <a href="#cart">Troli</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Kedai Produk Digital Moden</h1>
+    <p>Pilih produk kegemaran anda, tambah ke troli & buat pembayaran dengan mudah.</p>
+  </section>
+
+  <!-- Produk -->
+  <section id="products">
+    <h2>Produk Kami</h2>
+    <div class="products">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1559027615-5da2d578f7b6?auto=format&fit=crop&w=800&q=80" alt="Template Website">
+        <div class="card-content">
+          <h3>💻 Template Website</h3>
+          <p>Template HTML/CSS untuk bisnes online.</p>
+          <p><b>RM60 / USD15</b></p>
+          <button class="btn" onclick="addToCart('Template Website', 60, 15)">Tambah ke Troli</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1583337130417-f854e86aa239?auto=format&fit=crop&w=800&q=80" alt="Design Canva">
+        <div class="card-content">
+          <h3>🎨 Design Canva</h3>
+          <p>100+ template design media sosial.</p>
+          <p><b>RM50 / USD12</b></p>
+          <button class="btn" onclick="addToCart('Design Canva Pack', 50, 12)">Tambah ke Troli</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=800&q=80" alt="Digital Planner">
+        <div class="card-content">
+          <h3>📂 Digital Planner</h3>
+          <p>Planner & journal untuk iPad/Tablet.</p>
+          <p><b>RM40 / USD10</b></p>
+          <button class="btn" onclick="addToCart('Digital Planner', 40, 10)">Tambah ke Troli</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8c?auto=format&fit=crop&w=800&q=80" alt="Kursus Online">
+        <div class="card-content">
+          <h3>📚 Kursus Online</h3>
+          <p>Kursus digital marketing asas.</p>
+          <p><b>RM120 / USD30</b></p>
+          <button class="btn" onclick="addToCart('Kursus Online', 120, 30)">Tambah ke Troli</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Troli -->
+  <section id="cart">
+    <h2>Troli Belian</h2>
+    <div id="cart-items"></div>
+    <p><b>Total MYR:</b> RM<span id="total-myr">0</span></p>
+    <p><b>Total USD:</b> $<span id="total-usd">0</span></p>
+    <a id="checkout-myr" class="btn" style="display:none;" href="#">Checkout ToyyibPay (MYR)</a>
+    <form id="checkout-usd" action="https://www.paypal.com/ncp/payment" method="post" target="_blank" style="display:none;">
+      <input type="hidden" name="amount" id="paypal-amount" value="0">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="hidden" name="item_name" id="paypal-items" value="">
+      <button type="submit" class="btn">Checkout PayPal (USD)</button>
+    </form>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="testimoni">
+    <h2>Testimoni Pelanggan</h2>
+    <p>⭐️⭐️⭐️⭐️⭐️ "Template website sangat mudah digunakan, terus siap kedai online saya!" – Aina</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ "Design Canva pack memang jimat masa, banyak pilihan cantik." – Farid</p>
+    <p>⭐️⭐️⭐️⭐️⭐️ "Digital Planner terbaik untuk iPad saya." – Haziq</p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>Soalan Lazim (FAQ)</h2>
+    <details>
+      <summary>Bagaimana cara buat pembayaran?</summary>
+      <p>Anda boleh pilih ToyyibPay (MYR) atau PayPal (USD) semasa checkout.</p>
+    </details>
+    <details>
+      <summary>Bila saya akan terima produk?</summary>
+      <p>Produk digital akan dihantar terus ke email selepas pembayaran disahkan.</p>
+    </details>
+    <details>
+      <summary>Adakah produk ini ada support?</summary>
+      <p>Ya, hubungi kami melalui WhatsApp jika perlukan bantuan.</p>
+    </details>
+  </section>
+
+  <footer>
+    <p>© 2025 Fiqz Co Digital. Semua Hak Cipta Terpelihara.</p>
+  </footer>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/601169710673?text=Hai%20saya%20berminat%20dengan%20produk%20anda" 
+     target="_blank" class="whatsapp-float">
+    💬 WhatsApp Kami
+  </a>
+
+  <script>
+    let cart = [];
+    function addToCart(name, priceMYR, priceUSD) {
+      cart.push({ name, priceMYR, priceUSD });
+      updateCart();
+    }
+
+    function updateCart() {
+      let cartItems = document.getElementById("cart-items");
+      let totalMYR = 0, totalUSD = 0;
+      let itemNames = [];
+
+      cartItems.innerHTML = "";
+      cart.forEach((item, index) => {
+        cartItems.innerHTML += `<p>${item.name} - RM${item.priceMYR} / $${item.priceUSD} 
+          <button onclick="removeFromCart(${index})">❌</button></p>`;
+        totalMYR += item.priceMYR;
+        totalUSD += item.priceUSD;
+        itemNames.push(item.name);
+      });
+
+      document.getElementById("total-myr").innerText = totalMYR;
+      document.getElementById("total-usd").innerText = totalUSD;
+
+      if (cart.length > 0) {
+        document.getElementById("checkout-myr").style.display = "inline-block";
+        document.getElementById("checkout-usd").style.display = "block";
+        // 🚀 Gantikan link bawah ini dengan link Bill ToyyibPay sebenar anda
+        document.getElementById("checkout-myr").href = "https://toyyibpay.com/fiqz-digital-store-12345";
+        document.getElementById("paypal-amount").value = totalUSD;
+        document.getElementById("paypal-items").value = itemNames.join(", ");
+      } else {
+        document.getElementById("checkout-myr").style.display = "none";
+        document.getElementById("checkout-usd").style.display = "none";
+      }
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+  </script>
+</body>
+</html>
+
