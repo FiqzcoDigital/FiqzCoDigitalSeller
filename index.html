@@ -24,27 +24,13 @@
     .btn { display: inline-block; background: #007bff; color: white; padding: 10px 20px; margin-top: 15px; border-radius: 8px; text-decoration: none; transition: 0.3s; cursor: pointer; }
     .btn:hover { background: #0056b3; }
     #cart { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); margin-top: 40px; }
-    .testimoni, .faq { background: white; border-radius: 12px; padding: 25px; margin-top: 40px; box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-    .faq details { margin: 10px 0; }
     footer { text-align: center; padding: 20px; background: #1a1a1a; color: white; margin-top: 40px; }
-    /* WhatsApp Button */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 1000;
-    }
-    .whatsapp-float:hover { background: #1ebd5a; }
+    .faq { margin-top: 40px; }
+    .faq-item { background: white; margin-bottom: 10px; padding: 15px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .faq-answer { display: none; margin-top: 10px; font-size: 14px; color: #444; }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
+    .testimonial { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); font-style: italic; }
+    .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; padding: 15px; border-radius: 50%; text-decoration: none; font-size: 24px; box-shadow: 0 3px 6px rgba(0,0,0,0.2); }
   </style>
 </head>
 <body>
@@ -52,9 +38,9 @@
     <h2>Fiqz Co Digital</h2>
     <nav>
       <a href="#products">Produk</a>
-      <a href="#cart">Troli</a>
-      <a href="#testimoni">Testimoni</a>
+      <a href="#testimonials">Testimoni</a>
       <a href="#faq">FAQ</a>
+      <a href="#cart">Troli</a>
     </nav>
   </header>
 
@@ -63,7 +49,6 @@
     <p>Pilih produk kegemaran anda, tambah ke troli & buat pembayaran dengan mudah.</p>
   </section>
 
-  <!-- Produk -->
   <section id="products">
     <h2>Produk Kami</h2>
     <div class="products">
@@ -106,7 +91,31 @@
     </div>
   </section>
 
-  <!-- Troli -->
+  <section id="testimonials">
+    <h2>Testimoni Pelanggan</h2>
+    <div class="testimonials">
+      <div class="testimonial">“Produk sangat membantu bisnes saya!” – Aisyah</div>
+      <div class="testimonial">“Design kemas & mudah edit di Canva.” – Hafiz</div>
+      <div class="testimonial">“Sistem belian senang & cepat, recommended 👍” – Sarah</div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq">
+    <h2>FAQ</h2>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      ❓ Bagaimana cara buat bayaran?
+      <div class="faq-answer">Anda boleh bayar melalui ToyyibPay (MYR) atau PayPal (USD).</div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      ❓ Bila saya akan dapat produk?
+      <div class="faq-answer">Produk akan dihantar ke email anda dalam beberapa minit selepas pembayaran.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFAQ(this)">
+      ❓ Adakah support disediakan?
+      <div class="faq-answer">Ya, anda boleh hubungi kami terus melalui butang WhatsApp di bawah.</div>
+    </div>
+  </section>
+
   <section id="cart">
     <h2>Troli Belian</h2>
     <div id="cart-items"></div>
@@ -121,40 +130,12 @@
     </form>
   </section>
 
-  <!-- Testimoni -->
-  <section id="testimoni" class="testimoni">
-    <h2>Testimoni Pelanggan</h2>
-    <p>⭐️⭐️⭐️⭐️⭐️ "Template website sangat mudah digunakan, terus siap kedai online saya!" – Aina</p>
-    <p>⭐️⭐️⭐️⭐️⭐️ "Design Canva pack memang jimat masa, banyak pilihan cantik." – Farid</p>
-    <p>⭐️⭐️⭐️⭐️⭐️ "Digital Planner terbaik untuk iPad saya." – Haziq</p>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <h2>Soalan Lazim (FAQ)</h2>
-    <details>
-      <summary>Bagaimana cara buat pembayaran?</summary>
-      <p>Anda boleh pilih ToyyibPay (MYR) atau PayPal (USD) semasa checkout.</p>
-    </details>
-    <details>
-      <summary>Bila saya akan terima produk?</summary>
-      <p>Produk digital akan dihantar terus ke email selepas pembayaran disahkan.</p>
-    </details>
-    <details>
-      <summary>Adakah produk ini ada support?</summary>
-      <p>Ya, hubungi kami melalui WhatsApp jika perlukan bantuan.</p>
-    </details>
-  </section>
-
   <footer>
     <p>© 2025 Fiqz Co Digital. Semua Hak Cipta Terpelihara.</p>
   </footer>
 
-  <!-- WhatsApp -->
-  <a href="https://wa.me/601169710673?text=Hai%20saya%20berminat%20dengan%20produk%20anda" 
-     target="_blank" class="whatsapp-float">
-    💬 WhatsApp Kami
-  </a>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/601169710673" class="whatsapp-btn" target="_blank">💬</a>
 
   <script>
     let cart = [];
@@ -183,8 +164,7 @@
       if (cart.length > 0) {
         document.getElementById("checkout-myr").style.display = "inline-block";
         document.getElementById("checkout-usd").style.display = "block";
-        // 🚀 Gantikan link bawah ini dengan link Bill ToyyibPay sebenar anda
-        document.getElementById("checkout-myr").href = "https://toyyibpay.com/fiqz-digital-store-12345";
+        document.getElementById("checkout-myr").href = "https://toyyibpay.com/your-bill-link";
         document.getElementById("paypal-amount").value = totalUSD;
         document.getElementById("paypal-items").value = itemNames.join(", ");
       } else {
@@ -196,6 +176,11 @@
     function removeFromCart(index) {
       cart.splice(index, 1);
       updateCart();
+    }
+
+    function toggleFAQ(element) {
+      let answer = element.querySelector(".faq-answer");
+      answer.style.display = (answer.style.display === "block") ? "none" : "block";
     }
   </script>
 </body>
